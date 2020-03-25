@@ -99,12 +99,8 @@ fetch('https://opentdb.com/api.php?amount=50')
         console.log(data)
 
         data.results.forEach(elt => {
-            console.log(elt)
+            // console.log(elt)
             // console.log(elt.category)
-
-
-
-
 
             document.getElementById("content").innerHTML += `
             <figure>
@@ -124,6 +120,36 @@ fetch('https://opentdb.com/api.php?amount=50')
     })
 
 function Ausgabefenster(richtig, falsch) {
+    let ArrayAntworten1 = richtig;
+    let ArrayAntworten2 = falsch[0];
+    let ArrayAntworten3 = falsch[1];
+    let ArrayAntworten4 = falsch[2];
+    let Zufallszahl
+
+    // console.log(ArrayFragen1)
+    // console.log(ArrayFragen2)
+    // console.log(ArrayFragen3)
+    // console.log(ArrayFragen4)
+
+    let RandomArray = [{ Antwort1: ArrayAntworten1 },
+    { Antwort2: ArrayAntworten2 },
+    { Antwort3: ArrayAntworten3 },
+    { Antwort4: ArrayAntworten4 }]
+    console.log(RandomArray)
+
+    if (RandomArray[3] == 'undefined' && RandomArray[4] == 'undefined') {
+        Zufallszahl = Math.floor(Math.random() * 2)
+    } else {
+        Zufallszahl = Math.floor(Math.random() * 4)
+    }
+
+
+    let Position1 = RandomArray[Zufallszahl]
+
+
+
+    console.log(Position1)
+
     return "";
 }
 
