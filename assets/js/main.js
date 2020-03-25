@@ -101,6 +101,11 @@ fetch('https://opentdb.com/api.php?amount=50')
         data.results.forEach(elt => {
             console.log(elt)
             // console.log(elt.category)
+
+
+
+
+
             document.getElementById("content").innerHTML += `
             <figure>
             <img src="${BildAuswahl(elt)}">
@@ -109,13 +114,20 @@ fetch('https://opentdb.com/api.php?amount=50')
             <!-- <h3><b>Type: </b> ${elt.type}</h3>-->
             <!-- <h3><b>Difficulty: </b> ${elt.difficulty}</h3>-->
             <h3><b>Question: </b> ${elt.question}</h3>
-            <article><b>Korrekte Antwort: </b> ${elt.correct_answer}</article>
-            <article><b>Falsche Antworten: </b> ${elt.incorrect_answers}</article>
+            <span>${Ausgabefenster(elt.correct_answer, elt.incorrect_answers)}</span>    
+            <!--  <article><b>Korrekte Antwort: </b> ${elt.correct_answer}</article>-->
+            <!--  <article><b>Falsche Antworten: </b> ${elt.incorrect_answers}</article>-->
             </figcaption>
             </figure>`
         });
 
     })
+
+function Ausgabefenster(richtig, falsch) {
+    return "";
+}
+
+
 
 
 // let section = document.createElement("section")
