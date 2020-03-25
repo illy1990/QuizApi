@@ -110,7 +110,7 @@ fetch('https://opentdb.com/api.php?amount=50')
             <!-- <h3><b>Type: </b> ${elt.type}</h3>-->
             <!-- <h3><b>Difficulty: </b> ${elt.difficulty}</h3>-->
             <h3><b>Question: </b> ${elt.question}</h3>
-            <span>${Ausgabefenster(elt.correct_answer, elt.incorrect_answers)}</span>    
+            ${Ausgabefenster(elt.correct_answer, elt.incorrect_answers)}
             <!--  <article><b>Korrekte Antwort: </b> ${elt.correct_answer}</article>-->
             <!--  <article><b>Falsche Antworten: </b> ${elt.incorrect_answers}</article>-->
             </figcaption>
@@ -124,33 +124,70 @@ function Ausgabefenster(richtig, falsch) {
     let ArrayAntworten2 = falsch[0];
     let ArrayAntworten3 = falsch[1];
     let ArrayAntworten4 = falsch[2];
-    let Zufallszahl
+    let Zufallszahl;
+    let Position1;
+    let Position2;
+    let Position3;
+    let Position4;
 
     // console.log(ArrayFragen1)
     // console.log(ArrayFragen2)
     // console.log(ArrayFragen3)
     // console.log(ArrayFragen4)
 
-    let RandomArray = [{ Antwort1: ArrayAntworten1 },
-    { Antwort2: ArrayAntworten2 },
-    { Antwort3: ArrayAntworten3 },
-    { Antwort4: ArrayAntworten4 }]
-    console.log(RandomArray)
+    let RandomArray = [{ ArrayAntworten1 },
+    { ArrayAntworten2 },
+    { ArrayAntworten3 },
+    { ArrayAntworten4 }]
 
-    if (RandomArray[3] == 'undefined' && RandomArray[4] == 'undefined') {
+
+    if (RandomArray[0] == "True" || RandomArray[0] == "False") {
         Zufallszahl = Math.floor(Math.random() * 2)
+        if (Zufallszahl == 0) {
+            Position1 = 0;
+            Position2 = 1;
+            Position3 = "";
+            Position4 = "";
+        } else {
+            Position1 = 1;
+            Position2 = 0;
+        }
     } else {
         Zufallszahl = Math.floor(Math.random() * 4)
+        if (Zufallszahl == 0) {
+            Position1 = 0;
+            Position2 = 1;
+            Position3 = 2;
+            Position4 = 3;
+        } else if (Zufallszahl == 1) {
+            Position1 = 1;
+            Position2 = 2;
+            Position3 = 3;
+            Position4 = 0;
+        } else if (Zufallszahl == 2) {
+            Position1 = 2;
+            Position2 = 3;
+            Position3 = 0;
+            Position4 = 1;
+        } else if (Zufallszahl == 3) {
+            Position1 = 3;
+            Position2 = 0;
+            Position3 = 1;
+            Position4 = 2;
+        } else { }
     }
 
 
-    let Position1 = RandomArray[Zufallszahl]
+    // Das hier geht nicht, schau doch bitte mal ne runde drüber. Danke!
+    let Out1 = RandomArray[Position1]
+    let Out2 = RandomArray[Position2]
+    let Out3 = RandomArray[Position3]
+    let Out4 = RandomArray[Position4]
+    console.log(Out1)
+    let Output = "<span>${Out1}</span>"
+    return Output;
+    // Das hier geht nicht, schau doch bitte mal ne runde drüber. Danke!
 
-
-
-    console.log(Position1)
-
-    return "";
 }
 
 
