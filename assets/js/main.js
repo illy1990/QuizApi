@@ -98,20 +98,21 @@ fetch('https://opentdb.com/api.php?amount=50')
     .then(data => {
         console.log(data)
 
-
         data.results.forEach(elt => {
             console.log(elt)
+            // console.log(elt.category)
             document.getElementById("content").innerHTML += `
-    <div>
-        <h3><b>Category: </b> ${elt.category}</h3>
-        <h3><b>Type: </b> ${elt.type}</h3>
-        <h3><b>Difficulty: </b> ${elt.difficulty}</h3>
-        <h3><b>Question: </b> ${elt.question}</h3>
-
-        <article><b>Korrekte Antwort: </b> ${elt.correct_answer}</article>
-        <article><b>Falsche Antworten: </b> ${elt.incorrect_answers}</article>
-
-    </div>`
+            <figure>
+            <img src="${BildAuswahl(elt)}">
+            <figcaption>
+            <!-- <h3><b>Category: </b> ${elt.category}</h3> -->
+            <!-- <h3><b>Type: </b> ${elt.type}</h3>-->
+            <!-- <h3><b>Difficulty: </b> ${elt.difficulty}</h3>-->
+            <h3><b>Question: </b> ${elt.question}</h3>
+            <article><b>Korrekte Antwort: </b> ${elt.correct_answer}</article>
+            <article><b>Falsche Antworten: </b> ${elt.incorrect_answers}</article>
+            </figcaption>
+            </figure>`
         });
 
     })
@@ -205,4 +206,149 @@ fetch('https://opentdb.com/api.php?amount=50')
 //         e.target.style.backgroundColor = "red"
 //     }
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let SourceBild;
+function BildAuswahl(elt) {
+    if (elt.category == "Mythology") {
+        SourceBild = "https://i.ytimg.com/vi/sMNJb3Tc39M/maxresdefault.jpg"
+    }
+    else if (elt.category == "Entertainment: Music") {
+        SourceBild = "https://i.ytimg.com/vi/A_vBpMVUNoY/maxresdefault.jpg"
+    }
+    else if (elt.category == "Entertainment: Film") {
+        SourceBild = "https://www.itopnews.de/wp-content/uploads/2019/12/Film-Kino-Serie-foto-pixabay.com_.jpg"
+    }
+    else if (elt.category == "Science: Computers") {
+        SourceBild = "https://www.athens.edu/images/coas/programs/computer-science.jpg"
+    }
+    else if (elt.category == "Science & Nature") {
+        SourceBild = "https://i.imgur.com/mww96in.jpg"
+    }
+    else if (elt.category == "Animals") {
+        SourceBild = "https://www.iata.org/contentassets/d7c512eb9a704ba2a8056e3186a31921/cargo_live_animals_parrot.jpg?w=330&h=200&mode=crop&scale=both&v=20191213012337"
+    }
+    else if (elt.category == "Art") {
+        SourceBild = "https://www.moonlibrary.org/wp-content/uploads/2019/08/paintbrushes.jpg"
+    }
+    else if (elt.category == "Politics") {
+        SourceBild = "https://image.cnbcfm.com/api/v1/image/106240744-1573590258713politicaldebate.jpg?v=1573590321&w=1400&h=950"
+    }
+    else if (elt.category == "Entertainment: Cartoon & Animations") {
+        SourceBild = "https://i.ytimg.com/vi/9D281Wl1r6E/maxresdefault.jpg"
+    }
+    else if (elt.category == "General Knowledge") {
+        SourceBild = "https://www.quizony.com/general-knowledge-quiz/imageForSharing.png"
+    }
+    else if (elt.category == "Science: Mathematics") {
+        SourceBild = "https://miro.medium.com/max/2656/1*d0Qd8OUx_TUxG7N6H991ew.jpeg"
+    }
+    else if (elt.category == "Sports") {
+        SourceBild = "https://www.inforadio.de/content/dam/rbb/inf/Headerbilder_Sendestrecken/SportB-lle_1280.jpg.jpg/size=512x288.jpg"
+    }
+    else if (elt.category == "Entertainment: Comics") {
+        SourceBild = "https://i.pinimg.com/736x/14/fe/79/14fe7931d84a87b14928ec24b2de7ce1.jpg"
+    }
+    else if (elt.category == "Entertainment: Video Games") {
+        SourceBild = "https://www.gamecrate.com/sites/default/files/field/image/GamingPopularHeader.jpg"
+    }
+    else if (elt.category == "History") {
+        SourceBild = "https://th.bing.com/th?id=OIP.eePf1fyIMpjt8iFooJSGfwHaFD&pid=Api&rs=1"
+    }
+    else { SourceBild = "https://sinatax.de/wp-content/themes/consultix/images/no-image-found-360x260.png" }
+    return SourceBild;
+}
 // ------------------------------------------- Eigenes API -------------------------------------------
+// ------------------------------------------- BACKUP -------------------------------------------
+
+
+// fetch('https://opentdb.com/api.php?amount=50')
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(data)
+
+//         data.results.forEach(elt => {
+//             console.log(elt)
+//             // console.log(elt.category)
+//             document.getElementById("content").innerHTML += `
+//             <figure>
+//             <img src="${BildAuswahl(elt)}">
+//             <figcaption>
+//             <!-- <h3><b>Category: </b> ${elt.category}</h3> -->
+//             <!-- <h3><b>Type: </b> ${elt.type}</h3>-->
+//             <!-- <h3><b>Difficulty: </b> ${elt.difficulty}</h3>-->
+//             <h3><b>Question: </b> ${elt.question}</h3>
+//             <article><b>Korrekte Antwort: </b> ${elt.correct_answer}</article>
+//             <article><b>Falsche Antworten: </b> ${elt.incorrect_answers}</article>
+//             </figcaption>
+//             </figure>`
+//         });
+
+//     })
+
+
+
+// let SourceBild;
+// function BildAuswahl(elt) {
+//     if (elt.category == "Mythology") {
+//         SourceBild = "https://i.ytimg.com/vi/sMNJb3Tc39M/maxresdefault.jpg"
+//     }
+//     else if (elt.category == "Entertainment: Music") {
+//         SourceBild = "https://i.ytimg.com/vi/A_vBpMVUNoY/maxresdefault.jpg"
+//     }
+//     else if (elt.category == "Entertainment: Film") {
+//         SourceBild = "https://www.itopnews.de/wp-content/uploads/2019/12/Film-Kino-Serie-foto-pixabay.com_.jpg"
+//     }
+//     else if (elt.category == "Science: Computers") {
+//         SourceBild = "https://www.athens.edu/images/coas/programs/computer-science.jpg"
+//     }
+//     else if (elt.category == "Science & Nature") {
+//         SourceBild = "https://i.imgur.com/mww96in.jpg"
+//     }
+//     else if (elt.category == "Animals") {
+//         SourceBild = "https://www.iata.org/contentassets/d7c512eb9a704ba2a8056e3186a31921/cargo_live_animals_parrot.jpg?w=330&h=200&mode=crop&scale=both&v=20191213012337"
+//     }
+//     else if (elt.category == "Art") {
+//         SourceBild = "https://www.moonlibrary.org/wp-content/uploads/2019/08/paintbrushes.jpg"
+//     }
+//     else if (elt.category == "Politics") {
+//         SourceBild = "https://image.cnbcfm.com/api/v1/image/106240744-1573590258713politicaldebate.jpg?v=1573590321&w=1400&h=950"
+//     }
+//     else if (elt.category == "Entertainment: Cartoon & Animations") {
+//         SourceBild = "https://i.ytimg.com/vi/9D281Wl1r6E/maxresdefault.jpg"
+//     }
+//     else if (elt.category == "General Knowledge") {
+//         SourceBild = "https://www.quizony.com/general-knowledge-quiz/imageForSharing.png"
+//     }
+//     else if (elt.category == "Science: Mathematics") {
+//         SourceBild = "https://miro.medium.com/max/2656/1*d0Qd8OUx_TUxG7N6H991ew.jpeg"
+//     }
+//     else if (elt.category == "Sports") {
+//         SourceBild = "https://www.inforadio.de/content/dam/rbb/inf/Headerbilder_Sendestrecken/SportB-lle_1280.jpg.jpg/size=512x288.jpg"
+//     }
+//     else if (elt.category == "Entertainment: Comics") {
+//         SourceBild = "https://i.pinimg.com/736x/14/fe/79/14fe7931d84a87b14928ec24b2de7ce1.jpg"
+//     }
+//     else if (elt.category == "Entertainment: Video Games") {
+//         SourceBild = "https://www.gamecrate.com/sites/default/files/field/image/GamingPopularHeader.jpg"
+//     }
+//     else if (elt.category == "History") {
+//         SourceBild = "https://th.bing.com/th?id=OIP.eePf1fyIMpjt8iFooJSGfwHaFD&pid=Api&rs=1"
+//     }
+//     else { SourceBild = "https://sinatax.de/wp-content/themes/consultix/images/no-image-found-360x260.png" }
+//     return SourceBild;
+// }
+
+// ------------------------------------------- BACKUP -------------------------------------------

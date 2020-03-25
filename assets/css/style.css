@@ -1,4 +1,4 @@
-div {
+figure {
     border: 1px solid black;
     margin: 20px;
     padding: 20px;
@@ -8,4 +8,12 @@ div {
 #content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+img {
+    width: 100%;
+}
+
+h3 {
+    text-align: center;
 }
