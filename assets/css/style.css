@@ -1,13 +1,14 @@
 figure {
     border: 1px solid black;
-    margin: 20px;
     padding: 20px;
     background: lightblue;
+    width: 50%;
+    margin: 20px auto;
 }
 
 #content {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 }
 
 img {
